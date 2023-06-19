@@ -293,12 +293,10 @@ function fillNewRow(row) {
 	tableBody.appendChild(newRow);
 }
 
-$(document).ready(function () {
-	$("#mobileNumber").on("input", function () {
-		var inputValue = $(this).val();
-		var numbersOnly = inputValue.replace(/[^0-9]/g, "");
-		$(this).val(numbersOnly);
-	});
+$("#mobileNumber").on("input", function () {
+	var inputValue = $(this).val();
+	var numbersOnly = inputValue.replace(/[^0-9]/g, "");
+	$(this).val(numbersOnly);
 });
 
 function showRegBilling(id) {
@@ -312,7 +310,7 @@ function showPreview(id) {
 	$("previewModal").show();
 	if (id) {
 		$.ajax({
-			url: "http://localhost/task/index.php/Patient/getSinglePatient",
+			url: "/task/index.php/Patient/getSinglePatient",
 			type: "POST",
 			dataType: "json",
 			data: { pid: id },

@@ -5,6 +5,10 @@ class Patient extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model("Patient_model");
+		$this->load->library("pagination");
+		if(!$this->session->has_userdata('auth_user')){
+			redirect('Login');
+		}
       }
 
 	// Registration view starts here----------------->
@@ -19,19 +23,6 @@ class Patient extends CI_Controller {
 		}
 	}
 	
-
-// 	public function index()
-// {
-//     $page = $this->input->get('page') ? $this->input->get('page') : 1;
-//     $limit = 10;
-//     $offset = ($page - 1) * $limit;
-//     $rows = $this->Patient_model->getAllPatients($limit, $offset);
-//     $data['rows'] = $rows;
-//     $data['current_page'] = $page;
-//     $this->load->view('Registration', $data);
-// 	echo json_encode($data);
-// }
-
 
 	public function registerData(){
 		$this->load->library('form_validation');
@@ -52,6 +43,10 @@ class Patient extends CI_Controller {
 			$row=$this->Patient_model->getRow($id);
 			$data=$row;
 			$response['row']=$data;
+			$response['dataInserted']="successfull";
+			}else{
+				$response['dataInserted']="failed";
+				return false;
 			}
 			$response['status']=1;
 		}
@@ -133,9 +128,9 @@ public function saveBillingData()
 		$rows=$this->Patient_model->getBillingInfo();
 		if($rows){
 		$data['rows']=$rows;
-		$this->load->view("Billing.php",$data);
+		$this->load->view("Billing",$data);
 		}else{
-			$this->load->view("Billing.php");
+			$this->load->view("Billing");
 		}
 	}
 
@@ -149,9 +144,17 @@ public function saveBillingData()
 		}else{
 			return false;
 		}
-		
 	}
 
+	public function updatePatient(){
+		
+
+	}
+
+	public function deleteData($patientId){
+		$this->Patient_model->deleteAPatient($patientId);
+		redirect(base_url().'index.php/Patient/index');
+	}
 }
 
 

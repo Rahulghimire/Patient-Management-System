@@ -9,7 +9,6 @@
     <script type="text/javascript" src="../../assets/jquery-3.7.0.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <style>
-
     .form-control::placeholder {
     opacity: 0.5;
     }
@@ -37,7 +36,7 @@
                   </button></div>';
                 }
             ?>
-                <form action="<?php echo base_url()?>index.php/AdminController/login" method="post">
+                <form action="<?php echo base_url()?>index.php/Login/checkLogin" method="post">
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
                     <span class="h1 fw-bold mb-0">Logo</span>

@@ -9,7 +9,7 @@ var patientId = parts[parts.length - 1];
 
 $(document).ready(function () {
 	$.ajax({
-		url: "http://localhost/task/index.php/Patient/getTests",
+		url: "/task/index.php/Patient/getTests",
 		type: "GET",
 		dataType: "json",
 		success: function (response) {
@@ -40,20 +40,6 @@ $(document).ready(function () {
 		},
 	});
 });
-
-// $(document).ready(function () {
-// 	var selectPrice = $("#unit-price");
-// 	$.each(unitPrices, function (index, value) {
-// 		console.log(unitPrices);
-// 		selectPrice.append($("<option></option>").val(value).text(value));
-// 	});
-// 	var selectItem = $("#test-item");
-
-// 	$.each(testItemNames, function (index, value) {
-// 		console.log(unitPrices);
-// 		selectItem.append($("<option></option>").val(value).text(value));
-// 	});
-// });
 
 var grandTotal = 0;
 var totalPrice;
@@ -222,7 +208,7 @@ function generateBill() {
 		};
 
 		$.ajax({
-			url: "http://localhost/task/index.php/Patient/saveBillingData",
+			url: "/task/index.php/Patient/saveBillingData",
 			type: "POST",
 			data: data,
 			dataType: "json",
@@ -230,14 +216,12 @@ function generateBill() {
 				console.log(response);
 				if (response == "success") {
 					console.log(data);
-					// alert(
-					// 	"Data Inserted Successfully: You will be redirect to the billing section "
-					// );
+
 					$("#insertConfirmationModal").modal("show");
-					setTimeout(function () {
-						window.location.href =
-							"http://localhost/task/index.php/Patient/billing";
-					}, 1500);
+
+					// setTimeout(function () {
+					// 	window.location.href = "/task/index.php/Patient/billing";
+					// }, 1500);
 				}
 			},
 			error: function (error) {

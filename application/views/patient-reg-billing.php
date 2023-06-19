@@ -5,105 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing Registration</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-    body{
-        font-size:16px;
-    }
-    .navbar {
-        background-color: rgb(41, 37, 97);
-        padding: 1rem 1.5rem;
-    }
-
-    .navbar-brand {
-        color: #fff;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    .navbar-brand:hover {
-        color: #fff;
-    }
-
-    .form-inline {
-        display: flex;
-        align-items: center;
-    }
-
-    /* Navigation links styles */
-    .navbar li {
-        list-style-type: none;
-    }
-
-    .navbar li a {
-        color: #fff;
-        text-decoration: none;
-        margin-left: 10px;
-    }
-
-    .navbar li a:hover {
-        color: #fff;
-        text-decoration: underline;
-    }
-    ::placeholder {
-    font-size: 0.75rem;
-    color: gray;
-  }
-  .table td {
-    padding: 0.4rem!important;
-    vertical-align: middle;
-    font-size:12px;
-}
-
-select.form-control option {
-  font-size:10px;
-  color: gray;
-  }
-
-  .backg{
-    background-color: rgb(41, 37, 97) !important;
-  }
-
- .grand-total-section {
-  background-color: lightgray;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.grand-total-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.grand-total-section .grand-total {
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.grand-total-section .input-field {
-  padding: 5px;
-  border: 1px solid gray;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-.grand-total-section .btn {
-  margin-left: 10px;
-  align-self: flex-end;
-  margin-top:1rem;
-}
-</style>
+    <?php include('header.php'); ?>
+    <link rel="stylesheet" href="/task/assets/styles/patient-reg-billing.css">
 </head>
 <body>
-  <!-- <p><?php echo $value?></p> -->
     <?php include('navbar.php'); ?>
     <section class="py-3">
     <h5 class="pl-4 text-capitalize">Billing and Reg</p>
@@ -115,14 +20,13 @@ select.form-control option {
             <div class="modal-header border-none">
                 <h5 class="modal-title" id="insertConfirmationModalLongTitle">Confirmation Modal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" class="text-white">&times;</span>
                 </button>
             </div>
             <div class="modal-body preview-body" id="insertConfirmationModalBody">
               <span>Data Inserted Successfully.</span>
             </div>
             <div class="modal-footer border-none">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ><a class="text-white" href="<?php echo base_url().'index.php/Patient/billing'?>">Go to billing</a></button>
             </div>
             </div>
         </div>
@@ -184,10 +88,7 @@ select.form-control option {
   <button class="btn btn-success" onclick="generateBill()">Save</button>
 </section>
 </div>
-
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/task/assets/javascript/patient-reg-billing.js"></script>
 </body>
 </html>

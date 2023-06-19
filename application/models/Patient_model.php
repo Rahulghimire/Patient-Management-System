@@ -1,6 +1,35 @@
 <?php
 class Patient_model extends CI_model{
 
+    public function validateLogin(){
+        $this->form_validation->set_rules('email','Email','required|valid_email');
+        $this->form_validation->set_rules('password','Password','required');
+        if($this->form_validation->run()==false){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public function getUsers(){
+        $data=array(
+            'email'=>$this->input->post('email'),
+            'password'=>md5($this->input->post("password")),
+        );
+        
+        $this->db->where('email',$data['email']);
+        $this->db->where('password',$data['password']);
+        $this->db->from('users');
+        $this->db->limit(1);
+        $query=$this->db->get();
+        if($query->num_rows()>0){
+            return $query->row();
+        }
+        else{
+            return false;
+        }
+    }
+
     public function insertPatientData(){
         $formArray=array();
 			$formArray['Name']=$this->input->post('name');
@@ -16,6 +45,7 @@ class Patient_model extends CI_model{
         $this->db->insert('patients',$formArray);
         return $this->db->insert_id();
     }
+
     public function getRow($id){
         $this->db->where('PatientID',$id);
         return $row= $this->db->get('patients')->row_array();
@@ -31,6 +61,11 @@ class Patient_model extends CI_model{
         }else{
             return false;
         }
+    }
+
+    public function deleteAPatient($id){
+        $this->db->where('PatientID',$id);
+        $this->db->delete('patients');
     }
 
     function getAllPatients(){
