@@ -265,6 +265,7 @@ $("#patient-form").submit(function (event) {
 	}
 });
 
+
 function fillNewRow(row) {
 	const tableBody = document.getElementById("tableBody");
 	const rowCount = tableBody.rows.length;
@@ -353,3 +354,5 @@ function showPreview(id) {
 		});
 	}
 }
+
+

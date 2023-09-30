@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group col-md-6">
                                     <label for="age">Age<span class="required">*</span></label>
                                     <input type="number" class="form-control classy-input" id="age"
-                                        placeholder="Enter age" min="1" max="130" name="age">
+                                        placeholder="Enter age" min="1" max="130" name="age" >
                                     <small id="ageError" class="form-text text-danger age"></small>
                                 </div>
                             </div>
@@ -167,8 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
 
-
-        <!-- updateModel---------------- -->
+        <!-- updateModal---------------- -->
         <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -186,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group col-md-6">
                                     <label for="name">Name<span class="required">*</span></label>
                                     <input type="text" class="form-control classy-input" id="name"
-                                        placeholder="Enter name" name="name">
+                                        placeholder="Enter name" name="name" value="<?php echo set_value("name")?>">
                                     <small id="nameError" class="form-text text-danger name"></small>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -303,7 +302,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group col-md-6">
                                     <label for="mobileNumber">Mobile Number<span class="required">*</span></label>
                                     <input type="tel" class="form-control classy-input" id="mobileNumber"
-                                        pattern="[0-9]{10}" placeholder="+977 9860842010" name="mobile" maxlength="10" required>
+                                        pattern="[0-9]{10}" placeholder="+977 9860842010" name="mobile" maxlength="10" required value="<?php echo set_value("mobile")?>">
                                     <small id="mobileError" class="form-text text-danger mobile"></small>
                                 </div>
                             </div>
@@ -317,9 +316,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
-
-
-
 
         <!-- previewModal starts here -->
         <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalCenterTitle" aria-hidden="true">
@@ -380,7 +376,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         Actions
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item bg-info text-white" href="">Update</a>
+                                        <a class="dropdown-item bg-info text-white" href="#" onclick="update()">Update</a>
                                         <a class="dropdown-item bg-danger text-white" href="<?php echo base_url().'index.php/Patient/deleteData/'.$row['PatientID']?>">Delete</a>
                                     </div>
                                     </div>
@@ -402,7 +398,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </section>
     </section>
-    <script>
+
+<script>
     $(document).ready(function () {
         $('#patientModelList').DataTable({
             searching: true,
@@ -413,7 +410,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             responsive: true
         });
     });
+
+    function update() {
+	console.log("Update is clicked");
+    $('#updateModal').modal("show");
+    }
+
 </script>
-    <script src="../../assets/javascript/registration.js"></script>
+<script src="../../assets/javascript/registration.js"></script>
 </body>
 </html>

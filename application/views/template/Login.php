@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <script type="text/javascript" src="../../assets/jquery-3.7.0.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script type="text/javascript" src="../assets/jquery-3.7.0.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     <style>
     .form-control::placeholder {
     opacity: 0.5;
@@ -22,9 +22,9 @@
       <div class="col col-xl-10">
         <div class="card" style="border-radius: 1rem">
           <div class="row g-0">
-            <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="../../assets/img1.webp"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            <div class="col-md-6 col-lg-5 d-none d-md-block" >
+              <img src="../assets/login-bg.jpg" class="img-fluid h-100"
+                alt="login form" style="border-radius: 1rem 0 0 1rem" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">

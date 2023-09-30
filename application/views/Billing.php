@@ -54,9 +54,12 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="invoiceModalLongTitle">Invoice Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" class="text-white">&times;</span>
-                </button>
+                </button> -->
+                <div>
+                <button id="printButton"  style="background-color: #000; color: #fff; border: none; padding: 5px 10px; border-radius: 5px;">Print</button>
+                </div>
             </div>
             <div class="modal-body">
             <div class="upper-section"></div>
@@ -79,14 +82,33 @@
         </div>
         <hr>
         <div class="lower-section"></div>
-            <div class="modal-footer border-none">
+            <!-- <div class="modal-footer border-none">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            </div> -->
             </div>
         </div>
 </div>
 </div>   
 </section>
+<script>
+    $("#printButton").on("click", function () {
+    var printableContent = $("#invoiceModal .modal-content").clone();
+
+    var screenWidth = window.screen.width;
+    var screenHeight = window.screen.height;
+
+    var printWindow = window.open("", "", "width=" + screenWidth + ",height=" + screenHeight);
+    printWindow.document.open();
+    printWindow.document.write("<html><head><title>Print</title></head><body>");
+    printWindow.document.write(printableContent.html());
+    printWindow.document.write("</body></html>");
+    printWindow.document.close();
+
+    printWindow.print();
+    printWindow.close();
+});
+</script>
 <script src="../../assets/javascript/billing.js"></script>
+
 </body>
 </html>

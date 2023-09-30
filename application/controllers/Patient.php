@@ -72,6 +72,8 @@ class Patient extends CI_Controller {
 		if($value){
 		$data['value'] = $value;
 		$this->load->view('patient-reg-billing',$data);
+		}else{
+			return false;
 		}
 	}
 
@@ -79,6 +81,8 @@ class Patient extends CI_Controller {
 		$data=$this->Patient_model->getTestItems();
 		if($data){
 		echo json_encode($data);
+		}else{
+			return false;
 		}
 	}
 
@@ -147,7 +151,6 @@ public function saveBillingData()
 	}
 
 	public function updatePatient(){
-		
 
 	}
 
